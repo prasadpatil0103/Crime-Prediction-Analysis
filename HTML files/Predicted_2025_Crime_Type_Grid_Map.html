@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f62fa713979943b0f9d7eb7b7208fbf6 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    <div style='position: fixed; bottom: 50px; left: 50px; width: 200px; background: white; padding: 10px; border: 2px solid black;'><b>Predicted Crime Types</b><br><i style='background:#1f77b4;width:15px;height:15px;display:inline-block;margin-right:5px;'></i>MV THEFT<br><i style='background:#8c564b;width:15px;height:15px;display:inline-block;margin-right:5px;'></i>LARCENY<br><i style='background:#17becf;width:15px;height:15px;display:inline-block;margin-right:5px;'></i>BURGLARY<br></div>
+    
+            <div class="folium-map" id="map_f62fa713979943b0f9d7eb7b7208fbf6" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f62fa713979943b0f9d7eb7b7208fbf6 = L.map(
+                "map_f62fa713979943b0f9d7eb7b7208fbf6",
+                {
+                    center: [43.04086580432767, -76.14198599171108],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ddfd9ce25a5d7cb89c0c91e7d0b3d471 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_ddfd9ce25a5d7cb89c0c91e7d0b3d471.addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+            var rectangle_98530ad225562fc40e473b9bb1eb2895 = L.rectangle(
+                [[42.9865425000001, -76.13974125050001], [42.996542500000096, -76.1297412505]],
+                {"bubblingMouseEvents": true, "color": "#1f77b4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1f77b4", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_39280ab4c982a60f53bfb73b2dc707b3 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_3e673d7d4f718fe607323ceb14ccf5c2 = $(`<div id="html_3e673d7d4f718fe607323ceb14ccf5c2" style="width: 100.0%; height: 100.0%;">Grid: G_4298_-7614<br>Predicted Crime: MV THEFT</div>`)[0];
+                popup_39280ab4c982a60f53bfb73b2dc707b3.setContent(html_3e673d7d4f718fe607323ceb14ccf5c2);
+            
+        
+
+        rectangle_98530ad225562fc40e473b9bb1eb2895.bindPopup(popup_39280ab4c982a60f53bfb73b2dc707b3)
+        ;
+
+        
+    
+    
+            var rectangle_e3562c0d3c25db0e366f86eb7e657b49 = L.rectangle(
+                [[42.987330283416746, -76.1442537125833], [42.997330283416744, -76.1342537125833]],
+                {"bubblingMouseEvents": true, "color": "#1f77b4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1f77b4", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_93671a95af3c196539386b5470908b0a = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_d44c9c0eca8bd5c73e04f4a8d1f19d63 = $(`<div id="html_d44c9c0eca8bd5c73e04f4a8d1f19d63" style="width: 100.0%; height: 100.0%;">Grid: G_4298_-7615<br>Predicted Crime: MV THEFT</div>`)[0];
+                popup_93671a95af3c196539386b5470908b0a.setContent(html_d44c9c0eca8bd5c73e04f4a8d1f19d63);
+            
+        
+
+        rectangle_e3562c0d3c25db0e366f86eb7e657b49.bindPopup(popup_93671a95af3c196539386b5470908b0a)
+        ;
+
+        
+    
+    
+            var rectangle_814d6f8ebe888667b9fbe02a4ef13ccc = L.rectangle(
+                [[42.9886890000001, -76.153769999], [42.9986890000001, -76.143769999]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_6be1703a82bbb638b76e0dcbbe5adbcb = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_74a706681a2e9ae87c3b2f3e04a843e7 = $(`<div id="html_74a706681a2e9ae87c3b2f3e04a843e7" style="width: 100.0%; height: 100.0%;">Grid: G_4298_-7616<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_6be1703a82bbb638b76e0dcbbe5adbcb.setContent(html_74a706681a2e9ae87c3b2f3e04a843e7);
+            
+        
+
+        rectangle_814d6f8ebe888667b9fbe02a4ef13ccc.bindPopup(popup_6be1703a82bbb638b76e0dcbbe5adbcb)
+        ;
+
+        
+    
+    
+            var rectangle_559e3a66504c1507440d955501a2dcd2 = L.rectangle(
+                [[42.99799803688145, -76.13212609257626], [43.007998036881446, -76.12212609257625]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_dfa98492f9ad6faae4782de4e7be33ff = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_9aefa71664d361c16071db999ba565f4 = $(`<div id="html_9aefa71664d361c16071db999ba565f4" style="width: 100.0%; height: 100.0%;">Grid: G_4299_-7614<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_dfa98492f9ad6faae4782de4e7be33ff.setContent(html_9aefa71664d361c16071db999ba565f4);
+            
+        
+
+        rectangle_559e3a66504c1507440d955501a2dcd2.bindPopup(popup_dfa98492f9ad6faae4782de4e7be33ff)
+        ;
+
+        
+    
+    
+            var rectangle_e6aa051352c29a1e61348f20c6aa5199 = L.rectangle(
+                [[42.99393678313049, -76.14378590204345], [43.00393678313049, -76.13378590204344]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_eafa8369238d9b33442d825cea58ecc4 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_b8f72a8267acfd7932b8ffe8f3c78a4c = $(`<div id="html_b8f72a8267acfd7932b8ffe8f3c78a4c" style="width: 100.0%; height: 100.0%;">Grid: G_4299_-7615<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_eafa8369238d9b33442d825cea58ecc4.setContent(html_b8f72a8267acfd7932b8ffe8f3c78a4c);
+            
+        
+
+        rectangle_e6aa051352c29a1e61348f20c6aa5199.bindPopup(popup_eafa8369238d9b33442d825cea58ecc4)
+        ;
+
+        
+    
+    
+            var rectangle_3b36eac862211b5541c53479d2a3a26d = L.rectangle(
+                [[42.997788939842174, -76.15269338842101], [43.00778893984217, -76.14269338842101]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_b0f4af9afae5dad28f76c5496291c5d5 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_662a4bcbcd342c1fb4e1679679f2b618 = $(`<div id="html_662a4bcbcd342c1fb4e1679679f2b618" style="width: 100.0%; height: 100.0%;">Grid: G_4299_-7616<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_b0f4af9afae5dad28f76c5496291c5d5.setContent(html_662a4bcbcd342c1fb4e1679679f2b618);
+            
+        
+
+        rectangle_3b36eac862211b5541c53479d2a3a26d.bindPopup(popup_b0f4af9afae5dad28f76c5496291c5d5)
+        ;
+
+        
+    
+    
+            var rectangle_d2a7487b5f3ee72ba91f200daa8fbf94 = L.rectangle(
+                [[43.001541630137936, -76.12929016206897], [43.011541630137934, -76.11929016206896]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_c4a59286d01899afd41f42647902be20 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_f36bb23577baa86bbd38af0b43088a4f = $(`<div id="html_f36bb23577baa86bbd38af0b43088a4f" style="width: 100.0%; height: 100.0%;">Grid: G_4300_-7613<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_c4a59286d01899afd41f42647902be20.setContent(html_f36bb23577baa86bbd38af0b43088a4f);
+            
+        
+
+        rectangle_d2a7487b5f3ee72ba91f200daa8fbf94.bindPopup(popup_c4a59286d01899afd41f42647902be20)
+        ;
+
+        
+    
+    
+            var rectangle_8bf3036d8d5ff2844977c65892367286 = L.rectangle(
+                [[43.00531452650595, -76.1349416207882], [43.015314526505946, -76.12494162078819]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_1fb29c7a7a87fa855f3773ddb36f55b2 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_389c1e59e5fbf35a55a0d565c9e88d07 = $(`<div id="html_389c1e59e5fbf35a55a0d565c9e88d07" style="width: 100.0%; height: 100.0%;">Grid: G_4300_-7614<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_1fb29c7a7a87fa855f3773ddb36f55b2.setContent(html_389c1e59e5fbf35a55a0d565c9e88d07);
+            
+        
+
+        rectangle_8bf3036d8d5ff2844977c65892367286.bindPopup(popup_1fb29c7a7a87fa855f3773ddb36f55b2)
+        ;
+
+        
+    
+    
+            var rectangle_6ab604ef73617e1a3fabadc68b2bf05d = L.rectangle(
+                [[43.007089333907885, -76.14289965966358], [43.01708933390788, -76.13289965966358]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_fc68bf0e23786a74bb9c0509b06539a3 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_2b9b58b5f074d9148376e9b5720c98a4 = $(`<div id="html_2b9b58b5f074d9148376e9b5720c98a4" style="width: 100.0%; height: 100.0%;">Grid: G_4300_-7615<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_fc68bf0e23786a74bb9c0509b06539a3.setContent(html_2b9b58b5f074d9148376e9b5720c98a4);
+            
+        
+
+        rectangle_6ab604ef73617e1a3fabadc68b2bf05d.bindPopup(popup_fc68bf0e23786a74bb9c0509b06539a3)
+        ;
+
+        
+    
+    
+            var rectangle_6ab3c8e858336d58be0e7636ee41acba = L.rectangle(
+                [[43.00484055359189, -76.15509229324488], [43.01484055359189, -76.14509229324487]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_aa342fa31f77c59afe82287c42a60366 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_e52ccea5ace7d45781c5b9ac2d62de91 = $(`<div id="html_e52ccea5ace7d45781c5b9ac2d62de91" style="width: 100.0%; height: 100.0%;">Grid: G_4300_-7616<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_aa342fa31f77c59afe82287c42a60366.setContent(html_e52ccea5ace7d45781c5b9ac2d62de91);
+            
+        
+
+        rectangle_6ab3c8e858336d58be0e7636ee41acba.bindPopup(popup_aa342fa31f77c59afe82287c42a60366)
+        ;
+
+        
+    
+    
+            var rectangle_78e4ed2a6394b813d63251f22fb66cfe = L.rectangle(
+                [[43.00930807000003, -76.1602385113333], [43.01930807000003, -76.1502385113333]],
+                {"bubblingMouseEvents": true, "color": "#1f77b4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1f77b4", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_81a40f56391a6da06137ee7379edbb45 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_7d0dce01042142f239daeda267b8f9bb = $(`<div id="html_7d0dce01042142f239daeda267b8f9bb" style="width: 100.0%; height: 100.0%;">Grid: G_4300_-7617<br>Predicted Crime: MV THEFT</div>`)[0];
+                popup_81a40f56391a6da06137ee7379edbb45.setContent(html_7d0dce01042142f239daeda267b8f9bb);
+            
+        
+
+        rectangle_78e4ed2a6394b813d63251f22fb66cfe.bindPopup(popup_81a40f56391a6da06137ee7379edbb45)
+        ;
+
+        
+    
+    
+            var rectangle_cde5222e7d1f0c78824e2130e75585c6 = L.rectangle(
+                [[43.01859870000001, -76.1154705], [43.02859870000001, -76.1054705]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_ee6534aadcebb7d10d63e7a0dc44f45f = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_525b1fd9a7d1949af514d6252116b169 = $(`<div id="html_525b1fd9a7d1949af514d6252116b169" style="width: 100.0%; height: 100.0%;">Grid: G_4301_-7612<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_ee6534aadcebb7d10d63e7a0dc44f45f.setContent(html_525b1fd9a7d1949af514d6252116b169);
+            
+        
+
+        rectangle_cde5222e7d1f0c78824e2130e75585c6.bindPopup(popup_ee6534aadcebb7d10d63e7a0dc44f45f)
+        ;
+
+        
+    
+    
+            var rectangle_326c6b75be747957653d309e7b6d7538 = L.rectangle(
+                [[43.01577655705411, -76.12520560991888], [43.02577655705411, -76.11520560991887]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_3fb0d6fe23bf17f3e172343023c47bfa = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_c058503e050638d6da75bded0504fba5 = $(`<div id="html_c058503e050638d6da75bded0504fba5" style="width: 100.0%; height: 100.0%;">Grid: G_4301_-7613<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_3fb0d6fe23bf17f3e172343023c47bfa.setContent(html_c058503e050638d6da75bded0504fba5);
+            
+        
+
+        rectangle_326c6b75be747957653d309e7b6d7538.bindPopup(popup_3fb0d6fe23bf17f3e172343023c47bfa)
+        ;
+
+        
+    
+    
+            var rectangle_22033730de6f4d0ea3689dce76b44cc2 = L.rectangle(
+                [[43.01699497030089, -76.1343449869512], [43.02699497030089, -76.1243449869512]],
+                {"bubblingMouseEvents": true, "color": "#1f77b4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1f77b4", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_dddc62e71657a36e90c923f841b3afe3 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_793fa1ee479528d0579623830aca5101 = $(`<div id="html_793fa1ee479528d0579623830aca5101" style="width: 100.0%; height: 100.0%;">Grid: G_4301_-7614<br>Predicted Crime: MV THEFT</div>`)[0];
+                popup_dddc62e71657a36e90c923f841b3afe3.setContent(html_793fa1ee479528d0579623830aca5101);
+            
+        
+
+        rectangle_22033730de6f4d0ea3689dce76b44cc2.bindPopup(popup_dddc62e71657a36e90c923f841b3afe3)
+        ;
+
+        
+    
+    
+            var rectangle_6b8b75b15707fde8b37b1268f7df9871 = L.rectangle(
+                [[43.01496796254291, -76.1444805692612], [43.02496796254291, -76.1344805692612]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_314301dcd3398ea31c26ef95889f100f = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_96220c8b2035563fe6e33220f8455973 = $(`<div id="html_96220c8b2035563fe6e33220f8455973" style="width: 100.0%; height: 100.0%;">Grid: G_4301_-7615<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_314301dcd3398ea31c26ef95889f100f.setContent(html_96220c8b2035563fe6e33220f8455973);
+            
+        
+
+        rectangle_6b8b75b15707fde8b37b1268f7df9871.bindPopup(popup_314301dcd3398ea31c26ef95889f100f)
+        ;
+
+        
+    
+    
+            var rectangle_b1516bd96687cd85f8226da90f9a81af = L.rectangle(
+                [[43.01512503004243, -76.15505455977114], [43.025125030042425, -76.14505455977114]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_29adc7c29e631527b5e290b8c468b856 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_75cac640b5fab02e73f93249d2297577 = $(`<div id="html_75cac640b5fab02e73f93249d2297577" style="width: 100.0%; height: 100.0%;">Grid: G_4301_-7616<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_29adc7c29e631527b5e290b8c468b856.setContent(html_75cac640b5fab02e73f93249d2297577);
+            
+        
+
+        rectangle_b1516bd96687cd85f8226da90f9a81af.bindPopup(popup_29adc7c29e631527b5e290b8c468b856)
+        ;
+
+        
+    
+    
+            var rectangle_81e14267dcccf52e17e1d9ad6bbe56ac = L.rectangle(
+                [[43.0170755809131, -76.16336910710865], [43.0270755809131, -76.15336910710865]],
+                {"bubblingMouseEvents": true, "color": "#1f77b4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1f77b4", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_2e6d9359b794f82071905c8213aed68b = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_d8bc67a46b6e5c8afb23163f014730d7 = $(`<div id="html_d8bc67a46b6e5c8afb23163f014730d7" style="width: 100.0%; height: 100.0%;">Grid: G_4301_-7617<br>Predicted Crime: MV THEFT</div>`)[0];
+                popup_2e6d9359b794f82071905c8213aed68b.setContent(html_d8bc67a46b6e5c8afb23163f014730d7);
+            
+        
+
+        rectangle_81e14267dcccf52e17e1d9ad6bbe56ac.bindPopup(popup_2e6d9359b794f82071905c8213aed68b)
+        ;
+
+        
+    
+    
+            var rectangle_4d7a054d8c4e70de338f4e4bc2995345 = L.rectangle(
+                [[43.019466873571524, -76.17305746428563], [43.02946687357152, -76.16305746428563]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_ea69c42c4bd6b72ebcb4662509ab6f95 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_5ae1d3bfdfcf20611f39b5e8646cf94a = $(`<div id="html_5ae1d3bfdfcf20611f39b5e8646cf94a" style="width: 100.0%; height: 100.0%;">Grid: G_4301_-7618<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_ea69c42c4bd6b72ebcb4662509ab6f95.setContent(html_5ae1d3bfdfcf20611f39b5e8646cf94a);
+            
+        
+
+        rectangle_4d7a054d8c4e70de338f4e4bc2995345.bindPopup(popup_ea69c42c4bd6b72ebcb4662509ab6f95)
+        ;
+
+        
+    
+    
+            var rectangle_bc1201b19f86d240a05a877f8a308b31 = L.rectangle(
+                [[43.022391812156286, -76.11622867184374], [43.032391812156284, -76.10622867184374]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_dd7494c752f69b385ca0cadd9a68c62c = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_e2718db639c3b17e4a4307ab2b07f885 = $(`<div id="html_e2718db639c3b17e4a4307ab2b07f885" style="width: 100.0%; height: 100.0%;">Grid: G_4302_-7612<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_dd7494c752f69b385ca0cadd9a68c62c.setContent(html_e2718db639c3b17e4a4307ab2b07f885);
+            
+        
+
+        rectangle_bc1201b19f86d240a05a877f8a308b31.bindPopup(popup_dd7494c752f69b385ca0cadd9a68c62c)
+        ;
+
+        
+    
+    
+            var rectangle_09861120cc7f81d9369a92b9af5821e7 = L.rectangle(
+                [[43.02554215900006, -76.12537880229162], [43.03554215900006, -76.11537880229162]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_faa2fa1cb5035ebcfc638da7cf5baf50 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_40891754b13f53cd1a559996e547efb3 = $(`<div id="html_40891754b13f53cd1a559996e547efb3" style="width: 100.0%; height: 100.0%;">Grid: G_4302_-7613<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_faa2fa1cb5035ebcfc638da7cf5baf50.setContent(html_40891754b13f53cd1a559996e547efb3);
+            
+        
+
+        rectangle_09861120cc7f81d9369a92b9af5821e7.bindPopup(popup_faa2fa1cb5035ebcfc638da7cf5baf50)
+        ;
+
+        
+    
+    
+            var rectangle_b63bf979da50531bb14ce1e387ea5fc1 = L.rectangle(
+                [[43.02470738277325, -76.13472301885564], [43.03470738277325, -76.12472301885563]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_8991d50c2625ca93e97565fceb470aca = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_8294a64907cd6bf639affc7912fa63ad = $(`<div id="html_8294a64907cd6bf639affc7912fa63ad" style="width: 100.0%; height: 100.0%;">Grid: G_4302_-7614<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_8991d50c2625ca93e97565fceb470aca.setContent(html_8294a64907cd6bf639affc7912fa63ad);
+            
+        
+
+        rectangle_b63bf979da50531bb14ce1e387ea5fc1.bindPopup(popup_8991d50c2625ca93e97565fceb470aca)
+        ;
+
+        
+    
+    
+            var rectangle_f440a9041afcf1148a38df5a71ba2378 = L.rectangle(
+                [[43.02440540320247, -76.14514073906071], [43.03440540320247, -76.1351407390607]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_a719824e3722c081ab5e3e4c0c44bf9e = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_628cc221c52debdd768cb28807d6cc7a = $(`<div id="html_628cc221c52debdd768cb28807d6cc7a" style="width: 100.0%; height: 100.0%;">Grid: G_4302_-7615<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_a719824e3722c081ab5e3e4c0c44bf9e.setContent(html_628cc221c52debdd768cb28807d6cc7a);
+            
+        
+
+        rectangle_f440a9041afcf1148a38df5a71ba2378.bindPopup(popup_a719824e3722c081ab5e3e4c0c44bf9e)
+        ;
+
+        
+    
+    
+            var rectangle_5d071541b13f1887cfd4b2d3f932b4b0 = L.rectangle(
+                [[43.025289023849, -76.15506354640286], [43.035289023848996, -76.14506354640285]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_d20c60fafb0487a299ad51df274daa4d = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_afbec6daf8d15114a5edc817f991f38e = $(`<div id="html_afbec6daf8d15114a5edc817f991f38e" style="width: 100.0%; height: 100.0%;">Grid: G_4302_-7616<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_d20c60fafb0487a299ad51df274daa4d.setContent(html_afbec6daf8d15114a5edc817f991f38e);
+            
+        
+
+        rectangle_5d071541b13f1887cfd4b2d3f932b4b0.bindPopup(popup_d20c60fafb0487a299ad51df274daa4d)
+        ;
+
+        
+    
+    
+            var rectangle_45d6c9f0a9250369fe74d1b0e5a9f36d = L.rectangle(
+                [[43.02388777588005, -76.16335744470999], [43.033887775880046, -76.15335744470998]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_5e364af1afe69261e302e661df73e69b = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_355ae17211f2a839f84a0d25af07c3c2 = $(`<div id="html_355ae17211f2a839f84a0d25af07c3c2" style="width: 100.0%; height: 100.0%;">Grid: G_4302_-7617<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_5e364af1afe69261e302e661df73e69b.setContent(html_355ae17211f2a839f84a0d25af07c3c2);
+            
+        
+
+        rectangle_45d6c9f0a9250369fe74d1b0e5a9f36d.bindPopup(popup_5e364af1afe69261e302e661df73e69b)
+        ;
+
+        
+    
+    
+            var rectangle_840f4855c5e28598d1343109e376d285 = L.rectangle(
+                [[43.02489121239629, -76.17344192720752], [43.03489121239629, -76.16344192720751]],
+                {"bubblingMouseEvents": true, "color": "#1f77b4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1f77b4", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_9c3a8a571ad60e42bd8b6bca20263256 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_78d7e904c7dc716de543369f1f08d6a0 = $(`<div id="html_78d7e904c7dc716de543369f1f08d6a0" style="width: 100.0%; height: 100.0%;">Grid: G_4302_-7618<br>Predicted Crime: MV THEFT</div>`)[0];
+                popup_9c3a8a571ad60e42bd8b6bca20263256.setContent(html_78d7e904c7dc716de543369f1f08d6a0);
+            
+        
+
+        rectangle_840f4855c5e28598d1343109e376d285.bindPopup(popup_9c3a8a571ad60e42bd8b6bca20263256)
+        ;
+
+        
+    
+    
+            var rectangle_2b379ccf973ffa6cc8bff1c704733d56 = L.rectangle(
+                [[43.027882749214314, -76.18257090074997], [43.03788274921431, -76.17257090074996]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_d00bf0a8c9771766afca5d3c0acc259d = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_5aa80cfc12e1366258163c965c3c442c = $(`<div id="html_5aa80cfc12e1366258163c965c3c442c" style="width: 100.0%; height: 100.0%;">Grid: G_4302_-7619<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_d00bf0a8c9771766afca5d3c0acc259d.setContent(html_5aa80cfc12e1366258163c965c3c442c);
+            
+        
+
+        rectangle_2b379ccf973ffa6cc8bff1c704733d56.bindPopup(popup_d00bf0a8c9771766afca5d3c0acc259d)
+        ;
+
+        
+    
+    
+            var rectangle_d11e55e10a7d74db01210a997f473dda = L.rectangle(
+                [[43.026546016571466, -76.19463547299996], [43.036546016571464, -76.18463547299996]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_d5c3450c4cca81a195b93bd2e7665d35 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_ca6e9150d5d7f51e62890e2b06ee6bab = $(`<div id="html_ca6e9150d5d7f51e62890e2b06ee6bab" style="width: 100.0%; height: 100.0%;">Grid: G_4302_-7620<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_d5c3450c4cca81a195b93bd2e7665d35.setContent(html_ca6e9150d5d7f51e62890e2b06ee6bab);
+            
+        
+
+        rectangle_d11e55e10a7d74db01210a997f473dda.bindPopup(popup_d5c3450c4cca81a195b93bd2e7665d35)
+        ;
+
+        
+    
+    
+            var rectangle_f54ae209a6c60585918ce96a054ae00a = L.rectangle(
+                [[43.03705390780004, -76.07691297599997], [43.04705390780004, -76.06691297599997]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_89c42d1a4bdbda1eb38e1f39fc6d016b = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_715c094ff26fec2bf94d30ed1aa85535 = $(`<div id="html_715c094ff26fec2bf94d30ed1aa85535" style="width: 100.0%; height: 100.0%;">Grid: G_4303_-7608<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_89c42d1a4bdbda1eb38e1f39fc6d016b.setContent(html_715c094ff26fec2bf94d30ed1aa85535);
+            
+        
+
+        rectangle_f54ae209a6c60585918ce96a054ae00a.bindPopup(popup_89c42d1a4bdbda1eb38e1f39fc6d016b)
+        ;
+
+        
+    
+    
+            var rectangle_3ab5e48330a6f2236b8ae4980c66d18b = L.rectangle(
+                [[43.03817307575009, -76.09248268699994], [43.048173075750086, -76.08248268699994]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_de06ccf12338401a02845fd8510efa77 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_42a5ed1fc55c1329d1958b26942f4357 = $(`<div id="html_42a5ed1fc55c1329d1958b26942f4357" style="width: 100.0%; height: 100.0%;">Grid: G_4303_-7610<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_de06ccf12338401a02845fd8510efa77.setContent(html_42a5ed1fc55c1329d1958b26942f4357);
+            
+        
+
+        rectangle_3ab5e48330a6f2236b8ae4980c66d18b.bindPopup(popup_de06ccf12338401a02845fd8510efa77)
+        ;
+
+        
+    
+    
+            var rectangle_832dff7ec27f25e74c5be6e775d0adb0 = L.rectangle(
+                [[43.03690093811119, -76.10632794166662], [43.046900938111186, -76.09632794166662]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_b08669bb0722a071f458c67a08084f05 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_7ebbd72e659a2e2efc980eb44d6ea099 = $(`<div id="html_7ebbd72e659a2e2efc980eb44d6ea099" style="width: 100.0%; height: 100.0%;">Grid: G_4303_-7611<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_b08669bb0722a071f458c67a08084f05.setContent(html_7ebbd72e659a2e2efc980eb44d6ea099);
+            
+        
+
+        rectangle_832dff7ec27f25e74c5be6e775d0adb0.bindPopup(popup_b08669bb0722a071f458c67a08084f05)
+        ;
+
+        
+    
+    
+            var rectangle_76baa6f2b4ab0cfea2f93bd4e6acffde = L.rectangle(
+                [[43.03553368814289, -76.1167224000909], [43.04553368814289, -76.10672240009089]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_a763335d4f7e5cc59488478aa314184c = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_35e4589566af2579b3bf329c3448b08d = $(`<div id="html_35e4589566af2579b3bf329c3448b08d" style="width: 100.0%; height: 100.0%;">Grid: G_4303_-7612<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_a763335d4f7e5cc59488478aa314184c.setContent(html_35e4589566af2579b3bf329c3448b08d);
+            
+        
+
+        rectangle_76baa6f2b4ab0cfea2f93bd4e6acffde.bindPopup(popup_a763335d4f7e5cc59488478aa314184c)
+        ;
+
+        
+    
+    
+            var rectangle_f3d1dcf98d00c32767ed3970876a2c7a = L.rectangle(
+                [[43.036312485925976, -76.12558595531982], [43.046312485925974, -76.11558595531982]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_83a8c193a4906b451317a3de6decbb8b = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_419d4cb7d7262bbaed61fae8b19ed7e7 = $(`<div id="html_419d4cb7d7262bbaed61fae8b19ed7e7" style="width: 100.0%; height: 100.0%;">Grid: G_4303_-7613<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_83a8c193a4906b451317a3de6decbb8b.setContent(html_419d4cb7d7262bbaed61fae8b19ed7e7);
+            
+        
+
+        rectangle_f3d1dcf98d00c32767ed3970876a2c7a.bindPopup(popup_83a8c193a4906b451317a3de6decbb8b)
+        ;
+
+        
+    
+    
+            var rectangle_c5127cd4cba394e1b173fcc83bb033e9 = L.rectangle(
+                [[43.03843791676413, -76.13371543705641], [43.04843791676413, -76.1237154370564]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_63dbfd1acc29421d6461e0371c252a30 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_fc3745ad8488c5fb3ff74751ef282f03 = $(`<div id="html_fc3745ad8488c5fb3ff74751ef282f03" style="width: 100.0%; height: 100.0%;">Grid: G_4303_-7614<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_63dbfd1acc29421d6461e0371c252a30.setContent(html_fc3745ad8488c5fb3ff74751ef282f03);
+            
+        
+
+        rectangle_c5127cd4cba394e1b173fcc83bb033e9.bindPopup(popup_63dbfd1acc29421d6461e0371c252a30)
+        ;
+
+        
+    
+    
+            var rectangle_fe431d45990fbdb636d3419f0bf29966 = L.rectangle(
+                [[43.03602113631226, -76.14518092249754], [43.046021136312255, -76.13518092249754]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_ce223b86d74b1b37be9308fed6b5cede = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_4a67e70d7546ffbbb6491ccfe7c51cae = $(`<div id="html_4a67e70d7546ffbbb6491ccfe7c51cae" style="width: 100.0%; height: 100.0%;">Grid: G_4303_-7615<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_ce223b86d74b1b37be9308fed6b5cede.setContent(html_4a67e70d7546ffbbb6491ccfe7c51cae);
+            
+        
+
+        rectangle_fe431d45990fbdb636d3419f0bf29966.bindPopup(popup_ce223b86d74b1b37be9308fed6b5cede)
+        ;
+
+        
+    
+    
+            var rectangle_1fddb36f3599cefcb4818dca963c2e63 = L.rectangle(
+                [[43.03528547372998, -76.1566353536715], [43.045285473729976, -76.1466353536715]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_b25d1defcb9ac2a1f1657a991cbb2088 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_ff48fb28dbb0fff317c49b1e8f7e3967 = $(`<div id="html_ff48fb28dbb0fff317c49b1e8f7e3967" style="width: 100.0%; height: 100.0%;">Grid: G_4303_-7616<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_b25d1defcb9ac2a1f1657a991cbb2088.setContent(html_ff48fb28dbb0fff317c49b1e8f7e3967);
+            
+        
+
+        rectangle_1fddb36f3599cefcb4818dca963c2e63.bindPopup(popup_b25d1defcb9ac2a1f1657a991cbb2088)
+        ;
+
+        
+    
+    
+            var rectangle_f3f49e5778fd187cd825286f6bc449aa = L.rectangle(
+                [[43.03529596023755, -76.16566209809373], [43.045295960237546, -76.15566209809373]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_ec480565925c99538fbfd53ce1544bfe = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_ce050ca335de1fabc75df9fdd53d331c = $(`<div id="html_ce050ca335de1fabc75df9fdd53d331c" style="width: 100.0%; height: 100.0%;">Grid: G_4303_-7617<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_ec480565925c99538fbfd53ce1544bfe.setContent(html_ce050ca335de1fabc75df9fdd53d331c);
+            
+        
+
+        rectangle_f3f49e5778fd187cd825286f6bc449aa.bindPopup(popup_ec480565925c99538fbfd53ce1544bfe)
+        ;
+
+        
+    
+    
+            var rectangle_1e4aceeda7f4c20ea6caf9e99ed9215f = L.rectangle(
+                [[43.03473040877353, -76.17517856791159], [43.044730408773525, -76.16517856791158]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_d16cfc2cf7f1f8fd6235b1e1df8ecaf5 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_64bdfe8da1ff7c6ed6b310c3650489fa = $(`<div id="html_64bdfe8da1ff7c6ed6b310c3650489fa" style="width: 100.0%; height: 100.0%;">Grid: G_4303_-7618<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_d16cfc2cf7f1f8fd6235b1e1df8ecaf5.setContent(html_64bdfe8da1ff7c6ed6b310c3650489fa);
+            
+        
+
+        rectangle_1e4aceeda7f4c20ea6caf9e99ed9215f.bindPopup(popup_d16cfc2cf7f1f8fd6235b1e1df8ecaf5)
+        ;
+
+        
+    
+    
+            var rectangle_60c7ac9aa4cd18d272317f6cc25059c0 = L.rectangle(
+                [[43.03331367956822, -76.1840172568863], [43.043313679568215, -76.1740172568863]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_b2c7a10d7dd178f0a076bea101524455 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_bf52e60ade92d95adcbefe853be80547 = $(`<div id="html_bf52e60ade92d95adcbefe853be80547" style="width: 100.0%; height: 100.0%;">Grid: G_4303_-7619<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_b2c7a10d7dd178f0a076bea101524455.setContent(html_bf52e60ade92d95adcbefe853be80547);
+            
+        
+
+        rectangle_60c7ac9aa4cd18d272317f6cc25059c0.bindPopup(popup_b2c7a10d7dd178f0a076bea101524455)
+        ;
+
+        
+    
+    
+            var rectangle_2adb5060885537cba6ca61a450d8a6be = L.rectangle(
+                [[43.03229303416514, -76.19352347931184], [43.04229303416514, -76.18352347931183]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_ca6d08cbc435ccc2bb94f969a0ec5038 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_f1e90948d6a521dd73bdb3c4c353a68d = $(`<div id="html_f1e90948d6a521dd73bdb3c4c353a68d" style="width: 100.0%; height: 100.0%;">Grid: G_4303_-7620<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_ca6d08cbc435ccc2bb94f969a0ec5038.setContent(html_f1e90948d6a521dd73bdb3c4c353a68d);
+            
+        
+
+        rectangle_2adb5060885537cba6ca61a450d8a6be.bindPopup(popup_ca6d08cbc435ccc2bb94f969a0ec5038)
+        ;
+
+        
+    
+    
+            var rectangle_f8c343c7d2fa51a326e26a8b9cd84258 = L.rectangle(
+                [[43.04392138196005, -76.08766752255998], [43.053921381960045, -76.07766752255998]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_12bce919b0f5ecb25c3bec067cf584f8 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_85e853172dfd491718dd04dfb06168fd = $(`<div id="html_85e853172dfd491718dd04dfb06168fd" style="width: 100.0%; height: 100.0%;">Grid: G_4304_-7609<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_12bce919b0f5ecb25c3bec067cf584f8.setContent(html_85e853172dfd491718dd04dfb06168fd);
+            
+        
+
+        rectangle_f8c343c7d2fa51a326e26a8b9cd84258.bindPopup(popup_12bce919b0f5ecb25c3bec067cf584f8)
+        ;
+
+        
+    
+    
+            var rectangle_32c86eb8810508914a4dbf2736f8178f = L.rectangle(
+                [[43.04552189311774, -76.09670205129409], [43.055521893117735, -76.08670205129408]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_b4c364fe09f67f6bc41ca723de426dcf = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_0486907feeff5c866a17e6747b8e28ba = $(`<div id="html_0486907feeff5c866a17e6747b8e28ba" style="width: 100.0%; height: 100.0%;">Grid: G_4304_-7610<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_b4c364fe09f67f6bc41ca723de426dcf.setContent(html_0486907feeff5c866a17e6747b8e28ba);
+            
+        
+
+        rectangle_32c86eb8810508914a4dbf2736f8178f.bindPopup(popup_b4c364fe09f67f6bc41ca723de426dcf)
+        ;
+
+        
+    
+    
+            var rectangle_98c6cc937b44fb88c99e1383b649effb = L.rectangle(
+                [[43.045683018620416, -76.10538989401847], [43.055683018620414, -76.09538989401847]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_a7c1f8c77fb4c812eab261ae7bec797d = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_0713636084bb9d3b367af1d64ceebc1d = $(`<div id="html_0713636084bb9d3b367af1d64ceebc1d" style="width: 100.0%; height: 100.0%;">Grid: G_4304_-7611<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_a7c1f8c77fb4c812eab261ae7bec797d.setContent(html_0713636084bb9d3b367af1d64ceebc1d);
+            
+        
+
+        rectangle_98c6cc937b44fb88c99e1383b649effb.bindPopup(popup_a7c1f8c77fb4c812eab261ae7bec797d)
+        ;
+
+        
+    
+    
+            var rectangle_2d33001104dc28171822003c2d2ed322 = L.rectangle(
+                [[43.045273922250054, -76.11636274381095], [43.05527392225005, -76.10636274381095]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_22fb4f272d3f53ad25861751f1da7199 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_0e420108850d1510be95979a28c43180 = $(`<div id="html_0e420108850d1510be95979a28c43180" style="width: 100.0%; height: 100.0%;">Grid: G_4304_-7612<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_22fb4f272d3f53ad25861751f1da7199.setContent(html_0e420108850d1510be95979a28c43180);
+            
+        
+
+        rectangle_2d33001104dc28171822003c2d2ed322.bindPopup(popup_22fb4f272d3f53ad25861751f1da7199)
+        ;
+
+        
+    
+    
+            var rectangle_d93a9da8f8e80deace9dc760feaaef3a = L.rectangle(
+                [[43.04638127731801, -76.12410257050227], [43.05638127731801, -76.11410257050227]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_ed855033f6eb7ed93ebbe65bbbaaf8fb = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_babe0dddb27cb0ae95b136c9bb409d8d = $(`<div id="html_babe0dddb27cb0ae95b136c9bb409d8d" style="width: 100.0%; height: 100.0%;">Grid: G_4304_-7613<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_ed855033f6eb7ed93ebbe65bbbaaf8fb.setContent(html_babe0dddb27cb0ae95b136c9bb409d8d);
+            
+        
+
+        rectangle_d93a9da8f8e80deace9dc760feaaef3a.bindPopup(popup_ed855033f6eb7ed93ebbe65bbbaaf8fb)
+        ;
+
+        
+    
+    
+            var rectangle_34a994d24657287b024e34f961ea5241 = L.rectangle(
+                [[43.04442908460051, -76.1341392639122], [43.05442908460051, -76.1241392639122]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_22a1c37e9bd7c9f0a8b5309c51a57cd3 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_8141d8730f6dba735766f19885d66da9 = $(`<div id="html_8141d8730f6dba735766f19885d66da9" style="width: 100.0%; height: 100.0%;">Grid: G_4304_-7614<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_22a1c37e9bd7c9f0a8b5309c51a57cd3.setContent(html_8141d8730f6dba735766f19885d66da9);
+            
+        
+
+        rectangle_34a994d24657287b024e34f961ea5241.bindPopup(popup_22a1c37e9bd7c9f0a8b5309c51a57cd3)
+        ;
+
+        
+    
+    
+            var rectangle_19c34ee8ca4db12ff09600b2b0de73d3 = L.rectangle(
+                [[43.04509912995676, -76.14445402762016], [43.05509912995676, -76.13445402762015]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_18e54911939ae180f993ddb0d9837d35 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_dd32015a51d2c4da3b5fec1812a43458 = $(`<div id="html_dd32015a51d2c4da3b5fec1812a43458" style="width: 100.0%; height: 100.0%;">Grid: G_4304_-7615<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_18e54911939ae180f993ddb0d9837d35.setContent(html_dd32015a51d2c4da3b5fec1812a43458);
+            
+        
+
+        rectangle_19c34ee8ca4db12ff09600b2b0de73d3.bindPopup(popup_18e54911939ae180f993ddb0d9837d35)
+        ;
+
+        
+    
+    
+            var rectangle_1d40b18cdc9b7db5500a74880e857b7d = L.rectangle(
+                [[43.04589209573884, -76.15340241583623], [43.05589209573884, -76.14340241583622]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_3f0811eb022e9e6d71a39a27564fa27f = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_73c619278d1a4bed9b777d365c152eff = $(`<div id="html_73c619278d1a4bed9b777d365c152eff" style="width: 100.0%; height: 100.0%;">Grid: G_4304_-7616<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_3f0811eb022e9e6d71a39a27564fa27f.setContent(html_73c619278d1a4bed9b777d365c152eff);
+            
+        
+
+        rectangle_1d40b18cdc9b7db5500a74880e857b7d.bindPopup(popup_3f0811eb022e9e6d71a39a27564fa27f)
+        ;
+
+        
+    
+    
+            var rectangle_7f89fccf39f52ee61cc4933a32871d5c = L.rectangle(
+                [[43.04413544132335, -76.16409692920297], [43.054135441323346, -76.15409692920296]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_81c1d1d228ea688b6ca611822fa19ccb = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_9eae1057594862eb315e1ad3b6680d29 = $(`<div id="html_9eae1057594862eb315e1ad3b6680d29" style="width: 100.0%; height: 100.0%;">Grid: G_4304_-7617<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_81c1d1d228ea688b6ca611822fa19ccb.setContent(html_9eae1057594862eb315e1ad3b6680d29);
+            
+        
+
+        rectangle_7f89fccf39f52ee61cc4933a32871d5c.bindPopup(popup_81c1d1d228ea688b6ca611822fa19ccb)
+        ;
+
+        
+    
+    
+            var rectangle_6f1d7eb90f891a53ebc1723b20a98298 = L.rectangle(
+                [[43.04558239043486, -76.17362569943477], [43.05558239043486, -76.16362569943476]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_3b57ecf0d8e74c9533db9dd4b7051798 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_2909745750bdf2fbefd5a0188743f28a = $(`<div id="html_2909745750bdf2fbefd5a0188743f28a" style="width: 100.0%; height: 100.0%;">Grid: G_4304_-7618<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_3b57ecf0d8e74c9533db9dd4b7051798.setContent(html_2909745750bdf2fbefd5a0188743f28a);
+            
+        
+
+        rectangle_6f1d7eb90f891a53ebc1723b20a98298.bindPopup(popup_3b57ecf0d8e74c9533db9dd4b7051798)
+        ;
+
+        
+    
+    
+            var rectangle_28f83931613ef8e7c1337f22db3502eb = L.rectangle(
+                [[43.04656692580746, -76.18380551739996], [43.05656692580746, -76.17380551739996]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_6f65e9ea68d81797025fb2748c24123e = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_66d144961cec0ccd9121ecde2544a7e1 = $(`<div id="html_66d144961cec0ccd9121ecde2544a7e1" style="width: 100.0%; height: 100.0%;">Grid: G_4304_-7619<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_6f65e9ea68d81797025fb2748c24123e.setContent(html_66d144961cec0ccd9121ecde2544a7e1);
+            
+        
+
+        rectangle_28f83931613ef8e7c1337f22db3502eb.bindPopup(popup_6f65e9ea68d81797025fb2748c24123e)
+        ;
+
+        
+    
+    
+            var rectangle_f476f984d606e375aca76faca083c1a9 = L.rectangle(
+                [[43.04792986325007, -76.19179885264995], [43.05792986325007, -76.18179885264995]],
+                {"bubblingMouseEvents": true, "color": "#1f77b4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1f77b4", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_6efbb08a9e52c7a3f7fcd26621dbb505 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_68f5a38d44bd78f33de0815e48740e98 = $(`<div id="html_68f5a38d44bd78f33de0815e48740e98" style="width: 100.0%; height: 100.0%;">Grid: G_4304_-7620<br>Predicted Crime: MV THEFT</div>`)[0];
+                popup_6efbb08a9e52c7a3f7fcd26621dbb505.setContent(html_68f5a38d44bd78f33de0815e48740e98);
+            
+        
+
+        rectangle_f476f984d606e375aca76faca083c1a9.bindPopup(popup_6efbb08a9e52c7a3f7fcd26621dbb505)
+        ;
+
+        
+    
+    
+            var rectangle_e026d28554aaf2f2307aff0bcb3be44c = L.rectangle(
+                [[43.055152337625, -76.0873083380625], [43.065152337625, -76.0773083380625]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_2c12d71afc1878b00d2db6f573575814 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_b295de7a13dd6b6a4c2d6f4cbe47557a = $(`<div id="html_b295de7a13dd6b6a4c2d6f4cbe47557a" style="width: 100.0%; height: 100.0%;">Grid: G_4305_-7609<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_2c12d71afc1878b00d2db6f573575814.setContent(html_b295de7a13dd6b6a4c2d6f4cbe47557a);
+            
+        
+
+        rectangle_e026d28554aaf2f2307aff0bcb3be44c.bindPopup(popup_2c12d71afc1878b00d2db6f573575814)
+        ;
+
+        
+    
+    
+            var rectangle_08b62429ec233b4b4b3d43d2f88e1b72 = L.rectangle(
+                [[43.05363581814758, -76.09468659398358], [43.06363581814758, -76.08468659398358]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_6c0659768cb9053083ae1e97a0be85b5 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_9a6a81edb2ea08ba7fef2fece5425346 = $(`<div id="html_9a6a81edb2ea08ba7fef2fece5425346" style="width: 100.0%; height: 100.0%;">Grid: G_4305_-7610<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_6c0659768cb9053083ae1e97a0be85b5.setContent(html_9a6a81edb2ea08ba7fef2fece5425346);
+            
+        
+
+        rectangle_08b62429ec233b4b4b3d43d2f88e1b72.bindPopup(popup_6c0659768cb9053083ae1e97a0be85b5)
+        ;
+
+        
+    
+    
+            var rectangle_06de3b241fa675349da2b8e2a52a7ba6 = L.rectangle(
+                [[43.05372427014139, -76.1038352880181], [43.063724270141385, -76.0938352880181]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_891381144887f8d613a3f5acf248bee1 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_4715ff674c2278b6faec490785be35e3 = $(`<div id="html_4715ff674c2278b6faec490785be35e3" style="width: 100.0%; height: 100.0%;">Grid: G_4305_-7611<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_891381144887f8d613a3f5acf248bee1.setContent(html_4715ff674c2278b6faec490785be35e3);
+            
+        
+
+        rectangle_06de3b241fa675349da2b8e2a52a7ba6.bindPopup(popup_891381144887f8d613a3f5acf248bee1)
+        ;
+
+        
+    
+    
+            var rectangle_c101bf344120e141bd296881a85ddc44 = L.rectangle(
+                [[43.053737223500036, -76.11574583297792], [43.063737223500034, -76.10574583297792]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_c4e44bdd60204d919297bcad04609f34 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_2fe2d0c7bf7ef961167d8660628c0794 = $(`<div id="html_2fe2d0c7bf7ef961167d8660628c0794" style="width: 100.0%; height: 100.0%;">Grid: G_4305_-7612<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_c4e44bdd60204d919297bcad04609f34.setContent(html_2fe2d0c7bf7ef961167d8660628c0794);
+            
+        
+
+        rectangle_c101bf344120e141bd296881a85ddc44.bindPopup(popup_c4e44bdd60204d919297bcad04609f34)
+        ;
+
+        
+    
+    
+            var rectangle_cb0b0a0d0a7ca27550eb76752f43002e = L.rectangle(
+                [[43.05406662336563, -76.12526081009676], [43.064066623365626, -76.11526081009676]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_08603a569f5ab7494bf7660e9bb24391 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_c68a465dd546f71ff9b1966275e2c706 = $(`<div id="html_c68a465dd546f71ff9b1966275e2c706" style="width: 100.0%; height: 100.0%;">Grid: G_4305_-7613<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_08603a569f5ab7494bf7660e9bb24391.setContent(html_c68a465dd546f71ff9b1966275e2c706);
+            
+        
+
+        rectangle_cb0b0a0d0a7ca27550eb76752f43002e.bindPopup(popup_08603a569f5ab7494bf7660e9bb24391)
+        ;
+
+        
+    
+    
+            var rectangle_d94f2eb6ec90b24adea156900ae53d43 = L.rectangle(
+                [[43.0551446836563, -76.13549165390623], [43.0651446836563, -76.12549165390622]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_e631481a7122e5523a0c7fff95f1918a = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_8970b0fba985c362db8d243d325cc037 = $(`<div id="html_8970b0fba985c362db8d243d325cc037" style="width: 100.0%; height: 100.0%;">Grid: G_4305_-7614<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_e631481a7122e5523a0c7fff95f1918a.setContent(html_8970b0fba985c362db8d243d325cc037);
+            
+        
+
+        rectangle_d94f2eb6ec90b24adea156900ae53d43.bindPopup(popup_e631481a7122e5523a0c7fff95f1918a)
+        ;
+
+        
+    
+    
+            var rectangle_0b3806af79f4547bd0c34c9ff03840a7 = L.rectangle(
+                [[43.05711690921045, -76.14647680304232], [43.06711690921045, -76.13647680304231]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_37a937086f0f3d2eb597819867ed16c2 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_47544e55d68bfe0ad3031858db6ae6d1 = $(`<div id="html_47544e55d68bfe0ad3031858db6ae6d1" style="width: 100.0%; height: 100.0%;">Grid: G_4305_-7615<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_37a937086f0f3d2eb597819867ed16c2.setContent(html_47544e55d68bfe0ad3031858db6ae6d1);
+            
+        
+
+        rectangle_0b3806af79f4547bd0c34c9ff03840a7.bindPopup(popup_37a937086f0f3d2eb597819867ed16c2)
+        ;
+
+        
+    
+    
+            var rectangle_6c4a84911c45a77e6e0376521f09ec15 = L.rectangle(
+                [[43.05471281595782, -76.15419987740843], [43.06471281595782, -76.14419987740843]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_7ea94eb0735688f7458f7bf2ae4ce982 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_3b46b9e5a8bbcd3b016d6e0fd3b87699 = $(`<div id="html_3b46b9e5a8bbcd3b016d6e0fd3b87699" style="width: 100.0%; height: 100.0%;">Grid: G_4305_-7616<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_7ea94eb0735688f7458f7bf2ae4ce982.setContent(html_3b46b9e5a8bbcd3b016d6e0fd3b87699);
+            
+        
+
+        rectangle_6c4a84911c45a77e6e0376521f09ec15.bindPopup(popup_7ea94eb0735688f7458f7bf2ae4ce982)
+        ;
+
+        
+    
+    
+            var rectangle_59beae97a9b316e7f6961c0c033f3e0d = L.rectangle(
+                [[43.05332646032289, -76.16409895642519], [43.06332646032289, -76.15409895642519]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_0f4675cf5893103b55a15643d663b4b0 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_6150fbc939b4a8b5559aee43cdb332fc = $(`<div id="html_6150fbc939b4a8b5559aee43cdb332fc" style="width: 100.0%; height: 100.0%;">Grid: G_4305_-7617<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_0f4675cf5893103b55a15643d663b4b0.setContent(html_6150fbc939b4a8b5559aee43cdb332fc);
+            
+        
+
+        rectangle_59beae97a9b316e7f6961c0c033f3e0d.bindPopup(popup_0f4675cf5893103b55a15643d663b4b0)
+        ;
+
+        
+    
+    
+            var rectangle_9116e201d44e2360906a69cbfafc2d6c = L.rectangle(
+                [[43.05355361047915, -76.17240092908371], [43.06355361047915, -76.1624009290837]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_68d508624c17db52fd7a7ec26527a321 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_e679ad8f20460576e330e6648208f32f = $(`<div id="html_e679ad8f20460576e330e6648208f32f" style="width: 100.0%; height: 100.0%;">Grid: G_4305_-7618<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_68d508624c17db52fd7a7ec26527a321.setContent(html_e679ad8f20460576e330e6648208f32f);
+            
+        
+
+        rectangle_9116e201d44e2360906a69cbfafc2d6c.bindPopup(popup_68d508624c17db52fd7a7ec26527a321)
+        ;
+
+        
+    
+    
+            var rectangle_4985b9fc8f82187afeb2d21b7e38f39a = L.rectangle(
+                [[43.05378152818466, -76.18451445036153], [43.063781528184656, -76.17451445036153]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_8e733775553144cb30355c0b5725b5e8 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_4007e0e67b55cda18428f184f6885191 = $(`<div id="html_4007e0e67b55cda18428f184f6885191" style="width: 100.0%; height: 100.0%;">Grid: G_4305_-7619<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_8e733775553144cb30355c0b5725b5e8.setContent(html_4007e0e67b55cda18428f184f6885191);
+            
+        
+
+        rectangle_4985b9fc8f82187afeb2d21b7e38f39a.bindPopup(popup_8e733775553144cb30355c0b5725b5e8)
+        ;
+
+        
+    
+    
+            var rectangle_d02717a2acdbf49d69fce43580ed2330 = L.rectangle(
+                [[43.055571331260936, -76.19482372681519], [43.065571331260934, -76.18482372681518]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_d4fc25ef24066b973f1233694429b8bc = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_91f07b12678956eba1636cb576b85924 = $(`<div id="html_91f07b12678956eba1636cb576b85924" style="width: 100.0%; height: 100.0%;">Grid: G_4305_-7620<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_d4fc25ef24066b973f1233694429b8bc.setContent(html_91f07b12678956eba1636cb576b85924);
+            
+        
+
+        rectangle_d02717a2acdbf49d69fce43580ed2330.bindPopup(popup_d4fc25ef24066b973f1233694429b8bc)
+        ;
+
+        
+    
+    
+            var rectangle_314928ed5d351d9b857bba7c6c83eacb = L.rectangle(
+                [[43.06400804119359, -76.09496837354837], [43.074008041193586, -76.08496837354836]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_d03bdbded49e2f8b61b6bfd31bff4512 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_b24328e3452eb7b246ef2c0bdeaebab8 = $(`<div id="html_b24328e3452eb7b246ef2c0bdeaebab8" style="width: 100.0%; height: 100.0%;">Grid: G_4306_-7610<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_d03bdbded49e2f8b61b6bfd31bff4512.setContent(html_b24328e3452eb7b246ef2c0bdeaebab8);
+            
+        
+
+        rectangle_314928ed5d351d9b857bba7c6c83eacb.bindPopup(popup_d03bdbded49e2f8b61b6bfd31bff4512)
+        ;
+
+        
+    
+    
+            var rectangle_63c0a0facc0aaeb145179c0d7a880f41 = L.rectangle(
+                [[43.06717039927195, -76.10623225577189], [43.07717039927195, -76.09623225577188]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_f6229a541b60c1b93407adc014859c6e = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_2a84988e05036e40593a4ba6f990be4a = $(`<div id="html_2a84988e05036e40593a4ba6f990be4a" style="width: 100.0%; height: 100.0%;">Grid: G_4306_-7611<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_f6229a541b60c1b93407adc014859c6e.setContent(html_2a84988e05036e40593a4ba6f990be4a);
+            
+        
+
+        rectangle_63c0a0facc0aaeb145179c0d7a880f41.bindPopup(popup_f6229a541b60c1b93407adc014859c6e)
+        ;
+
+        
+    
+    
+            var rectangle_fe17f182961c18820b1547143ed602be = L.rectangle(
+                [[43.06690341458402, -76.11495058057663], [43.07690341458402, -76.10495058057663]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_9241cb5e7304755a2b609c9a8d7e9cb2 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_4e0d102253ffec13d759a870251b9bb4 = $(`<div id="html_4e0d102253ffec13d759a870251b9bb4" style="width: 100.0%; height: 100.0%;">Grid: G_4306_-7612<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_9241cb5e7304755a2b609c9a8d7e9cb2.setContent(html_4e0d102253ffec13d759a870251b9bb4);
+            
+        
+
+        rectangle_fe17f182961c18820b1547143ed602be.bindPopup(popup_9241cb5e7304755a2b609c9a8d7e9cb2)
+        ;
+
+        
+    
+    
+            var rectangle_1115ac11fb9eef7c365f832cf497af1c = L.rectangle(
+                [[43.06467088428161, -76.12400430797085], [43.07467088428161, -76.11400430797084]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_b15e1ecf0ffffb3469b29eaba0141e31 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_e198263a67dd341c83c9375856928791 = $(`<div id="html_e198263a67dd341c83c9375856928791" style="width: 100.0%; height: 100.0%;">Grid: G_4306_-7613<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_b15e1ecf0ffffb3469b29eaba0141e31.setContent(html_e198263a67dd341c83c9375856928791);
+            
+        
+
+        rectangle_1115ac11fb9eef7c365f832cf497af1c.bindPopup(popup_b15e1ecf0ffffb3469b29eaba0141e31)
+        ;
+
+        
+    
+    
+            var rectangle_ad87b11ad371653263c429040c1b0811 = L.rectangle(
+                [[43.06435312480005, -76.13651859671108], [43.07435312480005, -76.12651859671108]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_062d2e7743078d7da619b7502c9f79dd = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_426e8dec32029cbc78995f78773e3ab8 = $(`<div id="html_426e8dec32029cbc78995f78773e3ab8" style="width: 100.0%; height: 100.0%;">Grid: G_4306_-7614<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_062d2e7743078d7da619b7502c9f79dd.setContent(html_426e8dec32029cbc78995f78773e3ab8);
+            
+        
+
+        rectangle_ad87b11ad371653263c429040c1b0811.bindPopup(popup_062d2e7743078d7da619b7502c9f79dd)
+        ;
+
+        
+    
+    
+            var rectangle_db1417c3f5984f288c44af5f6e0cf635 = L.rectangle(
+                [[43.06426867754341, -76.14510386280634], [43.07426867754341, -76.13510386280633]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_2caa6f5f4e651d207a09080a12e13ebe = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_8518cb91263bd4ec7deb33232717c338 = $(`<div id="html_8518cb91263bd4ec7deb33232717c338" style="width: 100.0%; height: 100.0%;">Grid: G_4306_-7615<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_2caa6f5f4e651d207a09080a12e13ebe.setContent(html_8518cb91263bd4ec7deb33232717c338);
+            
+        
+
+        rectangle_db1417c3f5984f288c44af5f6e0cf635.bindPopup(popup_2caa6f5f4e651d207a09080a12e13ebe)
+        ;
+
+        
+    
+    
+            var rectangle_5dfaca6ab0d84293a35f28f72b0a52bf = L.rectangle(
+                [[43.0648474835572, -76.15435158762139], [43.0748474835572, -76.14435158762139]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_58715150c030698568e50c8768e32d28 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_67ff969224a3cfd71acc4b0d10130d62 = $(`<div id="html_67ff969224a3cfd71acc4b0d10130d62" style="width: 100.0%; height: 100.0%;">Grid: G_4306_-7616<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_58715150c030698568e50c8768e32d28.setContent(html_67ff969224a3cfd71acc4b0d10130d62);
+            
+        
+
+        rectangle_5dfaca6ab0d84293a35f28f72b0a52bf.bindPopup(popup_58715150c030698568e50c8768e32d28)
+        ;
+
+        
+    
+    
+            var rectangle_eaf3f3accbdc21f3de28a27a357a4e46 = L.rectangle(
+                [[43.068212398600075, -76.16378196616837], [43.07821239860007, -76.15378196616837]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_40c69c2a808937c4851c10282fc5309a = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_562d538f9b078879beda1ec97577e31d = $(`<div id="html_562d538f9b078879beda1ec97577e31d" style="width: 100.0%; height: 100.0%;">Grid: G_4306_-7617<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_40c69c2a808937c4851c10282fc5309a.setContent(html_562d538f9b078879beda1ec97577e31d);
+            
+        
+
+        rectangle_eaf3f3accbdc21f3de28a27a357a4e46.bindPopup(popup_40c69c2a808937c4851c10282fc5309a)
+        ;
+
+        
+    
+    
+            var rectangle_e33e41d3bc41b9506ebc9a466eef0ceb = L.rectangle(
+                [[43.067922307111, -76.17374706192149], [43.077922307110995, -76.16374706192148]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_1eab160aa2c7ea74fb3fd70548fde18f = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_9093b759d98b589e0aaaf0e325858782 = $(`<div id="html_9093b759d98b589e0aaaf0e325858782" style="width: 100.0%; height: 100.0%;">Grid: G_4306_-7618<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_1eab160aa2c7ea74fb3fd70548fde18f.setContent(html_9093b759d98b589e0aaaf0e325858782);
+            
+        
+
+        rectangle_e33e41d3bc41b9506ebc9a466eef0ceb.bindPopup(popup_1eab160aa2c7ea74fb3fd70548fde18f)
+        ;
+
+        
+    
+    
+            var rectangle_ff7f40516c4337bfb3832412ec5532bf = L.rectangle(
+                [[43.060064805, -76.196518006], [43.070064805, -76.186518006]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_9cf6f397ee2c77f3c8a382c5535a498b = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_09ddee9dc4ac9b44dd7c514dcfee06cc = $(`<div id="html_09ddee9dc4ac9b44dd7c514dcfee06cc" style="width: 100.0%; height: 100.0%;">Grid: G_4306_-7620<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_9cf6f397ee2c77f3c8a382c5535a498b.setContent(html_09ddee9dc4ac9b44dd7c514dcfee06cc);
+            
+        
+
+        rectangle_ff7f40516c4337bfb3832412ec5532bf.bindPopup(popup_9cf6f397ee2c77f3c8a382c5535a498b)
+        ;
+
+        
+    
+    
+            var rectangle_5ee4db627e6506fab9458690760559d1 = L.rectangle(
+                [[43.07274613257151, -76.10637024338092], [43.08274613257151, -76.09637024338092]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_5b6ff97ad427fa01924e2b59460d1ebc = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_1b695a0c0b446fdf3152b9959d66ee12 = $(`<div id="html_1b695a0c0b446fdf3152b9959d66ee12" style="width: 100.0%; height: 100.0%;">Grid: G_4307_-7611<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_5b6ff97ad427fa01924e2b59460d1ebc.setContent(html_1b695a0c0b446fdf3152b9959d66ee12);
+            
+        
+
+        rectangle_5ee4db627e6506fab9458690760559d1.bindPopup(popup_5b6ff97ad427fa01924e2b59460d1ebc)
+        ;
+
+        
+    
+    
+            var rectangle_aaa1a71a2bd67f33653e926e66a68fad = L.rectangle(
+                [[43.07186309678906, -76.11569799063298], [43.08186309678906, -76.10569799063298]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_edc8e45d7616d3cdede5cd65f659fefa = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_9146739cfc0478db5d17c240276ff72b = $(`<div id="html_9146739cfc0478db5d17c240276ff72b" style="width: 100.0%; height: 100.0%;">Grid: G_4307_-7612<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_edc8e45d7616d3cdede5cd65f659fefa.setContent(html_9146739cfc0478db5d17c240276ff72b);
+            
+        
+
+        rectangle_aaa1a71a2bd67f33653e926e66a68fad.bindPopup(popup_edc8e45d7616d3cdede5cd65f659fefa)
+        ;
+
+        
+    
+    
+            var rectangle_60a522e24121f65184eecd282b0e9f82 = L.rectangle(
+                [[43.07150947232266, -76.12239892332258], [43.08150947232266, -76.11239892332257]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_352feac229ae85e1056c911dcc750f17 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_b3d0ab3df4012a2c6289cdd89a34d2ce = $(`<div id="html_b3d0ab3df4012a2c6289cdd89a34d2ce" style="width: 100.0%; height: 100.0%;">Grid: G_4307_-7613<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_352feac229ae85e1056c911dcc750f17.setContent(html_b3d0ab3df4012a2c6289cdd89a34d2ce);
+            
+        
+
+        rectangle_60a522e24121f65184eecd282b0e9f82.bindPopup(popup_352feac229ae85e1056c911dcc750f17)
+        ;
+
+        
+    
+    
+            var rectangle_a07a97282471c74056f298adc0faad65 = L.rectangle(
+                [[43.07397145076628, -76.13599772183116], [43.08397145076628, -76.12599772183115]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_5fc387bd2a7ebfce8c84eec7cdf2286b = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_4673276e07f391db1dce738ab6588ed1 = $(`<div id="html_4673276e07f391db1dce738ab6588ed1" style="width: 100.0%; height: 100.0%;">Grid: G_4307_-7614<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_5fc387bd2a7ebfce8c84eec7cdf2286b.setContent(html_4673276e07f391db1dce738ab6588ed1);
+            
+        
+
+        rectangle_a07a97282471c74056f298adc0faad65.bindPopup(popup_5fc387bd2a7ebfce8c84eec7cdf2286b)
+        ;
+
+        
+    
+    
+            var rectangle_2d66c2c53c62eee82522561cf758f490 = L.rectangle(
+                [[43.072775193348626, -76.14592436549792], [43.082775193348624, -76.13592436549791]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_a0701b505c1d330052e8f18b032fb7e6 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_44de188578b90d1bbbee38eb36f4a178 = $(`<div id="html_44de188578b90d1bbbee38eb36f4a178" style="width: 100.0%; height: 100.0%;">Grid: G_4307_-7615<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_a0701b505c1d330052e8f18b032fb7e6.setContent(html_44de188578b90d1bbbee38eb36f4a178);
+            
+        
+
+        rectangle_2d66c2c53c62eee82522561cf758f490.bindPopup(popup_a0701b505c1d330052e8f18b032fb7e6)
+        ;
+
+        
+    
+    
+            var rectangle_616687d325160fce007168adb9992384 = L.rectangle(
+                [[43.073840574609804, -76.15525880064632], [43.0838405746098, -76.14525880064632]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_4db80374acfa5add609a3a4f66e50d73 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_12a1fd50f58769ae251cb0ba5224b73e = $(`<div id="html_12a1fd50f58769ae251cb0ba5224b73e" style="width: 100.0%; height: 100.0%;">Grid: G_4307_-7616<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_4db80374acfa5add609a3a4f66e50d73.setContent(html_12a1fd50f58769ae251cb0ba5224b73e);
+            
+        
+
+        rectangle_616687d325160fce007168adb9992384.bindPopup(popup_4db80374acfa5add609a3a4f66e50d73)
+        ;
+
+        
+    
+    
+            var rectangle_daba394766466fd5e4c85f289952a9e0 = L.rectangle(
+                [[43.07326049900004, -76.16339213587733], [43.08326049900004, -76.15339213587733]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_c05d5fbcc6b658a74dd54a87fff289e6 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_4b4ac73896b51c9063671b29ba61cb85 = $(`<div id="html_4b4ac73896b51c9063671b29ba61cb85" style="width: 100.0%; height: 100.0%;">Grid: G_4307_-7617<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_c05d5fbcc6b658a74dd54a87fff289e6.setContent(html_4b4ac73896b51c9063671b29ba61cb85);
+            
+        
+
+        rectangle_daba394766466fd5e4c85f289952a9e0.bindPopup(popup_c05d5fbcc6b658a74dd54a87fff289e6)
+        ;
+
+        
+    
+    
+            var rectangle_eb82674578b36c5e9f7a7ee9622ac20d = L.rectangle(
+                [[43.08126560637503, -76.14575470262497], [43.091265606375025, -76.13575470262496]],
+                {"bubblingMouseEvents": true, "color": "#8c564b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8c564b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_e2bcc0cb65051b485a9c44a992ccf79d = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_10c46425063a4b855c0b90bc1d186acf = $(`<div id="html_10c46425063a4b855c0b90bc1d186acf" style="width: 100.0%; height: 100.0%;">Grid: G_4308_-7615<br>Predicted Crime: LARCENY</div>`)[0];
+                popup_e2bcc0cb65051b485a9c44a992ccf79d.setContent(html_10c46425063a4b855c0b90bc1d186acf);
+            
+        
+
+        rectangle_eb82674578b36c5e9f7a7ee9622ac20d.bindPopup(popup_e2bcc0cb65051b485a9c44a992ccf79d)
+        ;
+
+        
+    
+    
+            var rectangle_a393f874322cd99319fbd38367fa422d = L.rectangle(
+                [[43.08104558907699, -76.15529909253837], [43.09104558907699, -76.14529909253837]],
+                {"bubblingMouseEvents": true, "color": "#17becf", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#17becf", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_fa7b1566f918ee829c57e584af225874 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_2e529e31195205cd890c3a0f5af9faee = $(`<div id="html_2e529e31195205cd890c3a0f5af9faee" style="width: 100.0%; height: 100.0%;">Grid: G_4308_-7616<br>Predicted Crime: BURGLARY</div>`)[0];
+                popup_fa7b1566f918ee829c57e584af225874.setContent(html_2e529e31195205cd890c3a0f5af9faee);
+            
+        
+
+        rectangle_a393f874322cd99319fbd38367fa422d.bindPopup(popup_fa7b1566f918ee829c57e584af225874)
+        ;
+
+        
+    
+    
+            var rectangle_908767c57dc99601411a7fdac59d0955 = L.rectangle(
+                [[43.1139420000001, -76.111874999], [43.1239420000001, -76.10187499899999]],
+                {"bubblingMouseEvents": true, "color": "#1f77b4", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1f77b4", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_f62fa713979943b0f9d7eb7b7208fbf6);
+        
+    
+        var popup_477c334cc02f91b9d73dd2ef543cdc7e = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_6e936f1cb931591c28c01b3231c4b677 = $(`<div id="html_6e936f1cb931591c28c01b3231c4b677" style="width: 100.0%; height: 100.0%;">Grid: G_4311_-7612<br>Predicted Crime: MV THEFT</div>`)[0];
+                popup_477c334cc02f91b9d73dd2ef543cdc7e.setContent(html_6e936f1cb931591c28c01b3231c4b677);
+            
+        
+
+        rectangle_908767c57dc99601411a7fdac59d0955.bindPopup(popup_477c334cc02f91b9d73dd2ef543cdc7e)
+        ;
+
+        
+    
+</script>
+</html>
