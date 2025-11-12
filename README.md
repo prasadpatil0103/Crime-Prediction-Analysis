@@ -94,3 +94,8 @@ MIT License
 - Syracuse Open Data Portal for crime datasets
 - SYRA036URN for unemployment statistics
 - IST 707 Applied Machine Learning course
+
+## Acknowledgments
+- Syracuse Open Data Portal for crime datasets
+- SYRA036URN for unemployment statistics
+- IST 707 Applied Machine Learning course
